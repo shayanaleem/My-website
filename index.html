@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shayan Aleem | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Global Styles ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:"Poppins",sans-serif; line-height:1.6; background:#f9fafc; color:#b65015; }
+    h1,h2,h3 { font-weight:700; }
+    a { text-decoration:none; color:inherit; scroll-behavior: smooth; }
+
+    /* ===== Navbar ===== */
+    nav {
+      position:sticky; top:0; z-index:1000;
+      display:flex; justify-content:space-between; align-items:center;
+      background:rgba(255,255,255,0.95); backdrop-filter:blur(6px);
+      padding:15px 60px; box-shadow:0 2px 8px rgba(134, 153, 159, 0.97);
+    }
+    nav h2 { color:#010f3f; font-size:22px; }
+    nav ul { list-style:none; display:flex; gap:25px; }
+    nav a { font-weight:500; transition:0.3s; }
+    nav a:hover { color:#0077b6; }
+
+    /* ===== Hero Carousel ===== */
+    #home {
+      height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; color:#fff; position:relative; overflow:hidden;
+    }
+    .carousel {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      z-index:-1; overflow:hidden;
+    }
+    .carousel img {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      object-fit:cover; opacity:0; transition:opacity 1.5s ease-in-out;
+    }
+    .carousel img.active { opacity:1; }
+    #home h1 { font-size:48px; margin-bottom:15px; text-shadow:0 2px 6px rgba(0,0,0,0.6); }
+    #home p { font-size:20px; max-width:600px; text-shadow:0 2px 6px rgba(0,0,0,0.6); }
+
+    /* ===== Section Wrapper ===== */
+    section { padding:80px 20px; max-width:1100px; margin:auto; }
+    section h2 { text-align:center; font-size:32px; color:#0077b6; margin-bottom:50px; }
+
+    /* ===== About Section ===== */
+    .about-container {
+      display:flex; flex-wrap:wrap; align-items:center; gap:40px; justify-content:center;
+    }
+    .about-container img {
+      width:280px; height:280px; border-radius:50%; object-fit:cover;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .about-text { flex:1; min-width:280px; }
+    .about-text h3 { font-size:24px; margin-bottom:15px; color:#0077b6; }
+    .about-text p { font-size:17px; line-height:1.8; color:#444; }
+
+    /* ===== Portfolio Grid ===== */
+    .portfolio-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;
+    }
+    .portfolio-item {
+      position:relative; overflow:hidden; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    .portfolio-item img {
+      width:100%; display:block; transition:transform 0.4s;
+    }
+    .portfolio-item:hover img { transform:scale(1.1); }
+    .portfolio-overlay {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,119,182,0.7); display:flex; justify-content:center; align-items:center;
+      opacity:0; transition:0.4s; color:#fff; font-size:18px; font-weight:600;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity:1; }
+
+    /* ===== Skills ===== */
+    .skills-container { max-width:700px; margin:auto; }
+    .skill { margin-bottom:20px; }
+    .skill-name { font-weight:500; margin-bottom:8px; }
+    .skill-bar {
+      height:12px; background:#ddd; border-radius:8px; overflow:hidden;
+    }
+    .skill-level {
+      height:100%; background:#00365a; border-radius:8px;
+      transition:width 1s ease;
+    }
+
+    /* ===== Contact Form ===== */
+    form { display:flex; flex-direction:column; gap:15px; max-width:600px; margin:auto; }
+    input, textarea {
+      padding:12px; border:1px solid #ccc; border-radius:8px; font-size:16px;
+    }
+    input:focus, textarea:focus { border-color:#0077b6; outline:none; }
+    button {
+      padding:14px; border:none; background:#0077b6; color:#fff; font-size:16px;
+      border-radius:8px; cursor:pointer; transition:0.3s;
+    }
+    button:hover { background:#005f86; }
+
+    /* ===== Footer ===== */
+    footer { text-align:center; padding:25px; background:#000127; color:#fff; margin-top:50px; }
+
+    /* ===== Responsive ===== */
+    @media(max-width:768px){
+      nav { padding:15px 20px; }
+      nav ul { gap:15px; }
+      #home h1 { font-size:34px; }
+      #home p { font-size:16px; }
+      .about-container { flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <h2>Mohammed Aleem</h2>
+    <ul>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="carousel">
+      <img src="carasol1.jpg" class="active">
+      <img src="carasol33.jpg">
+      <img src="carasol3.jpg">
+      <img src="carasol4.webp">
+      <img src="carasol5.jpg">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="PROFILE ma.jpg" alt="Shayan Aleem">
+      <div class="about-text">
+        <h3>Hi, I'm Mohammed Aleem</h3>
+        <p>
+          I'm a passionate <b>designer and creative thinker</b> with expertise in <b>UI/UX, Brouchers,Pamplates,Visiting/Bussiness Cards,Logos,branding, and digital design</b>.  
+          I enjoy solving problems through design and creating user-friendly, visually appealing solutions.  
+          My journey combines creativity and technology, helping businesses and individuals stand out in the digital space.  
+        </p>
+        <p>
+          Beyond design, I love exploring new technologies, continuous learning, and bringing fresh ideas to life.  
+          Let’s connect and create something impactful together!
+        </p>
+      </div>
+    </div>
+  </section>
+
+<section id="portfolio">
+  <h2>My Portfolio</h2>
+  <div class="portfolio-grid">
+    
+    <!-- Project 1 -->
+    <a href="https://shayanaleem.github.io/worldwide/" target="_blank" class="portfolio-item">
+      <img src="global c.avif" alt="PROJECT 1">
+      <div class="portfolio-overlay">Global Currency Website</div>
+    </a>
+
+    <!-- Project 2 -->
+    <a href="https://shayanaleem.github.io/healthyfruits/" target="_blank" class="portfolio-item">
+      <img src="mr d.jpg" alt="PROJECT 2">
+      <div class="portfolio-overlay">MR & SON'S Website</div>
+    </a>
+
+    <!-- Project 3 -->
+    <a href="file:///C:/Users/Administrator/Downloads/combinepdf.pdf" target="_blank" class="portfolio-item">
+      <img src="design.png" alt="PROJECT 3">
+      <div class="portfolio-overlay">My Designs</div>
+    </a>
+
+  </div>
+</section>
+
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <div class="skill-name">UI/UX Design</div>
+        <div class="skill-bar"><div class="skill-level" style="width:100%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Website design</div>
+        <div class="skill-bar"><div class="skill-level" style="width:100%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Graphic Design</div>
+        <div class="skill-bar"><div class="skill-level" style="width:100%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Branding</div>
+        <div class="skill-bar"><div class="skill-level" style="width:100%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">MS Office/Excel</div>
+        <div class="skill-bar"><div class="skill-level" style="width:100"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Microsoft Azure Fundamentals</div>
+        <div class="skill-bar"><div class="skill-level" style="width:100"></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- My Certifications -->
+  <section id="portfolio">
+    <h2>My Certifications </h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="Ai Fundamental c.jpg" alt="Artificial Intelligence">
+        <div class="portfolio-overlay">Artificial Intelligence</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="cyber security c.jpg" alt="Cyber Security">
+        <div class="portfolio-overlay">CyberSecurity</div>
+      </div>
+      <div class="portfolio-item">
+        <img src="IT fundamental c.jpg" alt="Information Technology">
+        <div class="portfolio-overlay">Information Technology</div>
+      </div>
+    </div>
+  </section>
+  <!-- JavaScript for Carousel -->
+  <script>
+    const slides = document.querySelectorAll('.carousel img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+<!-- ===== Chatbot Widget ===== -->
+<style>
+  .chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .chatbot-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 420px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .chatbot-header {
+    background: linear-gradient(90deg,#dbe914,#a3dccc);
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .chatbot-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  .chatbot-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  .chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+  }
+  .chatbot-input button {
+    background: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 0 14px;
+    cursor: pointer;
+  }
+</style>
+
+
+</script>
+<!-- ===== Contact section (HTML + CSS + JS) ===== -->
+<style>
+  /* Contact form styles (copy into your main stylesheet if you prefer) */
+  .contact-section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (max-width: 880px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  .contact-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(12, 20, 30, 0.08);
+    border: 1px solid rgba(16,24,40,0.04);
+  }
+
+  .contact-card h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #003e63;
+  }
+  .contact-card p.small {
+    margin-bottom: 16px;
+    color: #586069;
+    font-size: 14px;
+  }
+
+  .form-row { display: flex; gap: 14px; }
+  .form-row .field { flex: 1; }
+  .field { margin-bottom: 12px; }
+
+  label.floating {
+    display:block;
+    position:relative;
+    font-size:13px;
+    color:#55606a;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  input[type="url"] {
+    width:100%;
+    padding:12px 14px;
+    font-size:15px;
+    border-radius:8px;
+    border:1px solid #e2e8f0;
+    background: #fff;
+    outline:none;
+    transition: box-shadow .15s, border-color .15s, transform .08s;
+  }
+  textarea { min-height:140px; resize:vertical; }
+
+  input:focus, textarea:focus {
+    border-color: #0077b6;
+    box-shadow: 0 6px 18px rgba(0,119,182,0.08);
+  }
+
+  .muted {
+    font-size:13px; color:#7a8794;
+  }
+
+  .submit-btn {
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:10px;
+    border:0;
+    background:linear-gradient(90deg,#0077b6,#00a3d9);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow: 0 8px 20px rgba(0,119,182,0.12);
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .submit-btn[disabled] { opacity:.65; cursor:not-allowed; transform:none; box-shadow:none; }
+
+  .submit-btn:hover:not([disabled]) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,119,182,0.16); }
+
+  .msg {
+    margin-top:14px;
+    padding:12px 14px;
+    border-radius:8px;
+    font-size:14px;
+    display:none;
+  }
+  .msg.success { background:#e6fffa; color:#064e3b; border:1px solid #b7f5e6; display:none; }
+  .msg.error { background:#fff1f2; color:#7f1d1d; border:1px solid #feb2b2; display:none; }
+
+  /* Small contact details column styling */
+  .contact-info {
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .info-row {
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .info-icon {
+    width:44px; height:44px; border-radius:10px; background:#f1f8fb; display:flex; align-items:center; justify-content:center; color:#0077b6; font-weight:700;
+    flex-shrink:0;
+  }
+  .info-text { font-size:15px; color:#22303a; }
+  .info-small { font-size:13px; color:#637381; margin-top:4px; }
+
+</style>
+
+<section id="contact" class="contact-section">
+  <div class="contact-grid">
+    <!-- Form card -->
+    <div class="contact-card" aria-labelledby="contact-title">
+      <h3 id="contact-title">Get in touch</h3>
+      <p class="small">Have a project, question or an opportunity? Send a message and I'll reply within 24–48 hours.</p>
+
+      <form id="contactForm">
+        <!-- Use your Formspree endpoint here -->
+        <input type="hidden" name="_replyto" id="replytoHidden" value="">
+
+        <div class="form-row">
+          <div class="field">
+            <label class="floating">Full name
+              <input type="text" name="name" id="name" placeholder="e.g. Shayan Aleem" required>
+            </label>
+          </div>
+          <div class="field">
+            <label class="floating">Phone (optional)
+              <input type="tel" name="phone" id="phone" placeholder="+91 9XXXXXXXXX">
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="floating">Email
+            <input type="email" name="email" id="email" placeholder="you@example.com" required>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="floating">Subject
+            <input type="text" name="subject" id="subject" placeholder="Project or inquiry title" required>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="floating">Message
+            <textarea name="message" id="message" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+          </label>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center; margin-top:8px;">
+          <button type="submit" id="submitBtn" class="submit-btn">Send Message</button>
+          <div class="muted">You will receive a confirmation email after submission.</div>
+        </div>
+
+        <div id="formSuccess" class="msg success">Thanks — your message has been sent. I'll get back to you soon!</div>
+        <div id="formError" class="msg error"><b>shayanaleem31@gmail.com</b>.</div>
+      </form>
+    </div>
+
+    <!-- Contact info card -->
+    <aside class="contact-card">
+      <h3>Contact details</h3>
+      <p class="small">Prefer to reach out directly? Use the details below or connect on LinkedIn / GitHub.</p>
+
+      <div class="contact-info" style="margin-top:14px;">
+        <div class="info-row">
+          <div class="info-icon">📧</div>
+          <div>
+            <div class="info-text">shayanaleem31@gmail.com</div>
+            <div class="info-small"></div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div>
+            <div class="info-text">+91 6302758462</div>
+            <div class="info-small">WhatsApp & calls</div>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div>
+            <div class="info-text">Hyderabad,Telangana, India</div>
+            <div class="info-small">Available for remote & local projects</div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px; display:flex; gap:10px;">
+          <a href="https://github.com/shayanaleem" aria-label="github" style="display:inline-block; padding:8px 12px; border-radius:8px; background:#0f172a; color:#fff; font-weight:600;">GitHub</a>
+          <a href="https://www.linkedin.com/in/shayan-aleem-a772931a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" style="display:inline-block; padding:8px 12px; border-radius:8px; background:#0077b6; color:#fff; font-weight:600;">LinkedIn</a>
+          <a href="https://www.instagram.com/shayan_aleem1/profilecard/?igsh=YnY5aW0zam5mZ2Ji" aria-label="Instagram" style="display:inline-block; padding:8px 12px; border-radius:8px; background:#f639b1; color:#fff; font-weight:600;">Instagram</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script>
+  // Replace this with your Formspree endpoint
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successEl = document.getElementById('formSuccess');
+  const errorEl = document.getElementById('formError');
+
+  // AJAX submit to Formspree
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // basic client-side validation (HTML required attributes do most)
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !subject || !message) {
+      errorEl.textContent = "Please complete all required fields.";
+      errorEl.style.display = 'block';
+      successEl.style.display = 'none';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    errorEl.style.display = 'none';
+    successEl.style.display = 'none';
+
+    try {
+      const formData = new FormData(form);
+      // Formspree accepts form-encoded or formdata; here we POST FormData
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        successEl.style.display = 'block';
+        errorEl.style.display = 'none';
+        form.reset();
+      } else {
+        // When Formspree returns errors they appear in data.errors
+        const errMessage = (data && data.error) ? data.error : 'Submission failed';
+        errorEl.textContent = `Error: ${errMessage}`;
+        errorEl.style.display = 'block';
+      }
+    } catch (err) {
+      errorEl.textContent = "Network error — please try again later.";
+      errorEl.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+<!-- ===== Chatbot Widget ===== -->
+<style>
+  .chatbot-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .chatbot-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 420px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .chatbot-header {
+    background: linear-gradient(90deg,#0077b6,#00a3d9);
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .chatbot-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  .chatbot-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  .chatbot-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+  }
+  .chatbot-input button {
+    background: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 0 14px;
+    cursor: pointer;
+  }
+</style>
+
+<button class="chatbot-toggle" id="chatbotToggle">💬</button>
+
+<div class="chatbot-box" id="chatbotBox">
+  <div class="chatbot-header">AI Assistant</div>
+  <div class="chatbot-messages" id="chatbotMessages">
+    <div><b>Bot:</b> Hi Shayan! 👋 How can I help you today?</div>
+  </div>
+  <div class="chatbot-input">
+    <input type="text" id="chatbotInput" placeholder="Type a message..." />
+    <button id="chatbotSend">Send</button>
+  </div>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById("chatbotToggle");
+  const box = document.getElementById("chatbotBox");
+  const input = document.getElementById("chatbotInput");
+  const sendBtn = document.getElementById("chatbotSend");
+  const messages = document.getElementById("chatbotMessages");
+
+  toggleBtn.onclick = () => {
+    box.style.display = box.style.display === "flex" ? "none" : "flex";
+  };
+
+  function addMessage(author, text) {
+    const div = document.createElement("div");
+    div.innerHTML = `<b>${author}:</b> ${text}`;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  sendBtn.onclick = () => {
+    const text = input.value.trim();
+    if (!text) return;
+    addMessage("You", text);
+    input.value = "";
+
+    // Fake bot reply (you can connect to OpenAI API later)
+    setTimeout(() => {
+      addMessage("Bot", "🤖 I received: " + text);
+    }, 500);
+  };
+  
+</script>
+
+
+</body>
+</html>
+<!-- Footer -->
+  <footer>
+    <p>© 2025 Shayan Aleem </p>
+  </footer
